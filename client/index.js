@@ -48,11 +48,14 @@ console.log(cheapestTShirt);
 // 1. Create a variable and assign it the number of products
 // 2. Log the variable
 
+const numberOfProducts = marketplace.length;
+console.log(numberOfProducts);
 
 // 🎯 TODO: Brands name
 // 1. Create a variable and assign it the list of brands name only
 // 2. Log the variable
 // 3. Log how many brands we have
+
 
 
 // 🎯 TODO: Sort by price
