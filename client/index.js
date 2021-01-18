@@ -29,11 +29,9 @@ console.log(MY_FAVORITE_BRANDS[0]);
 // 0. I have 3 favorite brands stored in MY_FAVORITE_BRANDS variable
 // 1. Create a new variable and assign it the link of the cheapest t-shirt
 // I can find on these e-shops
-
-const cheapestTShirt = 'https://www.loom.fr/products/le-t-shirt';
-
 // 2. Log the variable
 
+const cheapestTShirt = 'https://www.loom.fr/products/le-t-shirt';
 console.log(cheapestTShirt);
 
 
