@@ -133,12 +133,16 @@ for (const b of brandsName) {
 for (const p of marketplace) {
   brands[p.brand].push(p);
 }
-console.log(brands);
+// console.log(brands);
 
 // 🎯 TODO: Sort by price for each brand
 // 1. For each brand, sort the products by price, from highest to lowest
 // 2. Log the sort
 
+for (const [key, value] of Object.entries(brands)) {
+  value.sort(sortPrice).reverse();
+}
+console.log(brands);
 
 // 🎯 TODO: Sort by date for each brand
 // 1. For each brand, sort the products by date, from old to recent
