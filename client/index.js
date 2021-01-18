@@ -149,6 +149,10 @@ console.log(brands);
 // 1. For each brand, sort the products by date, from old to recent
 // 2. Log the sort
 
+for (const b of brandsName) {
+  brands[b].sort(sortDate);
+}
+console.log(brands);
 
 /**
  * 💶
