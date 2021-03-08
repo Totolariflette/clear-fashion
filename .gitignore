@@ -111,6 +111,7 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
-server
+scraper
 slides/dist
 serverless
+products.json
