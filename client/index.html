@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>👕 Clear Fahion | Environmentally & human-friendly clothes</title>
@@ -20,8 +20,10 @@
         <select name="page" id="page-select"> </select>
       </div>
       <div id="filters">
-        <span>By reasonable price</span>
-        <span>By recently released</span>
+        <input type="checkbox" id="goodprice" name="reasonableprice">
+        <span for="goodprice">By reasonable price</span>
+        <input type="checkbox" id="recent" name="newrelease">
+        <span for="recent">By recently released</span>
         <div id="brand">
           <label for="brand-select">By brands:</label>
           <select name="brand" id="brand-select"> </select>
@@ -41,27 +43,27 @@
       <h2>Indicators</h2>
       <div>
         <span>Number of products</span>
-        <span id="nbProducts">0</span>
+        <span id="nbProducts"></span>
       </div>
       <div>
         <span>Number of new products</span>
-        <span>0</span>
+        <span id="displayed"></span>
       </div>
       <div>
         <span>p50 price value</span>
-        <span>0</span>
+        <span id="p50"></span>
       </div>
       <div>
         <span>p90 price value</span>
-        <span>0</span>
+        <span id="p90"></span>
       </div>
       <div>
         <span>p95 price value</span>
-        <span>0</span>
+        <span id="p95"></span>
       </div>
       <div>
         <span>Last released date</span>
-        <span>2020-01-01</span>
+        <span id = "last_realeased"></span>
       </div>
     </section>
     <section id="products"></section>

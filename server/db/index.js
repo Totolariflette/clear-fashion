@@ -1,10 +1,13 @@
 require('dotenv').config();
 const {MongoClient} = require('mongodb');
-const fs = require('fs');
+ // TODO put this information in a .config file
 
-const MONGODB_DB_NAME = 'clearfashion';
-const MONGODB_COLLECTION = 'products';
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI ="mongodb+srv://AFR2512:Bellecreole44@clearfashion.mbe0y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const MONGODB_DB_NAME = "clearfashion"
+const MONGODB_COLLECTION = 'products'
+//const config = require("../config");
+const fs=require('fs');
+
 
 let client = null;
 let database = null;
@@ -16,6 +19,7 @@ let database = null;
 const getDB = module.exports.getDB = async () => {
   try {
     if (database) {
+      console.log('💽  Already Connected');
       return database;
     }
 
@@ -40,6 +44,8 @@ module.exports.insert = async products => {
   try {
     const db = await getDB();
     const collection = db.collection(MONGODB_COLLECTION);
+    // More details
+    // https://docs.mongodb.com/manual/reference/method/db.collection.insertMany/#insert-several-document-specifying-an-id-field
     const result = await collection.insertMany(products);
 
     return result;
@@ -47,17 +53,68 @@ module.exports.insert = async products => {
     console.error('🚨 collection.insertMany...', error);
     fs.writeFileSync('products.json', JSON.stringify(products));
     return {
-      'insertedCount': 0
+      'insertedCount': error.result.nInserted
     };
   }
 };
+
+
+module.exports.findLimit = async (query,limit) => {
+  try {
+    const db = await getDB();
+    const collection = db.collection(MONGODB_COLLECTION);
+    const result = await collection.find(query).limit(limit).toArray();
+    return result;
+  } catch (error) {
+    console.error('🚨 collection.findLimit...', error);
+    return null;
+  }
+};
+
+
+module.exports.getMeta = async(page, size,query=null ) => {
+  const db = await getDB();
+  const collection = db.collection(MONGODB_COLLECTION);
+  let count;
+  if (query==null){
+    count = await collection.count();
+  }
+  else{
+    count = await collection.find(query).count();
+  }
+
+  const pageCount = Math.ceil(count/size);
+  return {"currentPage" : page,"pageCount":pageCount,"pageSize":size,"count":count}
+}
+
+module.exports.findPage = async (page,size,query=null) => {
+  try {
+    const db = await getDB();
+    const collection = db.collection(MONGODB_COLLECTION);
+    const offset = page ? page * size : 0;
+    let result;
+    if(query==undefined){
+      result = await collection.find({}).skip(offset)
+                  .limit(size).toArray();
+    }else{
+      result = await collection.find(query).skip(offset)
+                  .limit(size).toArray();
+    }
+
+    return result;
+  } catch (error) {
+    console.error('🚨 collection.findPage...', error);
+    return null;
+  }
+};
+
 
 /**
  * Find products based on query
  * @param  {Array}  query
  * @return {Array}
  */
-module.exports.find = async query => {
+ module.exports.find = async query => {
   try {
     const db = await getDB();
     const collection = db.collection(MONGODB_COLLECTION);
@@ -69,6 +126,7 @@ module.exports.find = async query => {
     return null;
   }
 };
+
 
 /**
  * Close the connection
