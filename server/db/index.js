@@ -2,8 +2,8 @@ require('dotenv').config();
 const {MongoClient} = require('mongodb');
  // TODO put this information in a .config file
 
-const MONGODB_URI ="mongodb+srv://AFR2512:Bellecreole44@clearfashion.mbe0y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const MONGODB_DB_NAME = "clearfashion"
+const MONGODB_URI ="mongodb+srv://toto:toto@clusterfashion.2jbtd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const MONGODB_DB_NAME = "ClusterFashion"
 const MONGODB_COLLECTION = 'products'
 //const config = require("../config");
 const fs=require('fs');

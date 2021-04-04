@@ -7,7 +7,7 @@ const eshops = ['https://www.dedicatedbrand.com/','https://www.loom.fr/','https:
 const {MongoClient} = require('mongodb');
 //A MODIFIER
 const MONGODB_URI = "mongodb+srv://toto:toto@clusterfashion.2jbtd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const MONGODB_DB_NAME = 'clearfashion';
+const MONGODB_DB_NAME = 'ClusterFashion';
 
 
 async function sandbox () {
