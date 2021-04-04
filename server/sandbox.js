@@ -1,13 +1,12 @@
 const fsLibrary  = require('fs') 
 const dedicatedbrand = require('./sites/dedicatedbrand');
 const loom = require('./sites/loom');
-const toJsonFile = require('./sources/toJsonFile');
 const mudjeans = require('./sources/mudjeans');
-// const adresseparis = require('./sources/adresseparis');
+// const adresseparis = require('./sources/paris');
 const eshops = ['https://www.dedicatedbrand.com/','https://www.loom.fr/','https://mudjeans.eu/','https://adresse.paris/'];
 const {MongoClient} = require('mongodb');
 //A MODIFIER
-const MONGODB_URI = "mongodb+srv://AFR2512:Bellecreole44@clearfashion.mbe0y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const MONGODB_URI = "mongodb+srv://toto:toto@clusterfashion.2jbtd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const MONGODB_DB_NAME = 'clearfashion';
 
 
