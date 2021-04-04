@@ -2,9 +2,9 @@ require('dotenv').config();
 const {MongoClient} = require('mongodb');
 const fs = require('fs');
 
-const MONGODB_URI = 'mongodb+srv://yanpodo:yanpodo@cluster0.v6l1t.mongodb.net?retryWrites=true&writeConcern=majority';
+const MONGODB_URI = 'mongodb+srv://toto:toto@clusterfashion.2jbtd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const MONGODB_COLLECTION = 'products';
-const MONGODB_DB_NAME = 'clearfashion';
+const MONGODB_DB_NAME = 'ClusterFashion';
 
 let client = null;
 let database = null;
